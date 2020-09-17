@@ -13,7 +13,7 @@
     {% block header %}
     <header id="header">
         <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a id="brand" class="navbar-brand" href="/">MyApp</a>
+            <a id="brand" class="navbar-brand" href="/">Привет Мир</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,6 +23,27 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-images"></i>news
                     </a>
+                    {% if user.logged_in %}
+                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" style="color: white;">the first thingy</a>
+                        <a class="dropdown-item" href="#" style="color: white;">the second thingy</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#" style="color: white;"><i class="fas fa-images"></i>manage thingys</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/images"><i class="fas fa-user"></i>my images</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile"><i class="fas fa-sliders-h"></i>profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/images/upload"><i class="fas fa-upload"></i>upload image</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt"></i>logout</a>
+                </li>
+                {% else %}
                     <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#" style="color: white;">the first thingy</a>
                         <a class="dropdown-item" href="#" style="color: white;">the second thingy</a>
@@ -34,7 +55,7 @@
                     <a class="nav-link" href="/register"><i class="fas fa-user"></i>register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sliders-h"></i>Settings</a>
+                    <a class="nav-link" href="/profile"><i class="fas fa-sliders-h"></i>profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/images/upload"><i class="fas fa-upload"></i>Upload</a>
@@ -42,6 +63,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i>Login</a>
                 </li>
+                {% endif %}
             </ul>
         </nav>
     </header>
